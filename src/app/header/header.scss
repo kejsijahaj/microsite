@@ -1,0 +1,23 @@
+.header-wrapper {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
+    margin: 0 auto 2rem auto;
+    text-align: center;
+    padding: 0 1rem;
+    background-color: #f8f8f8;
+}
+
+.theme-btn, .cart-btn {
+    background: none;
+    border: none;
+    font-size: 1.5rem;
+    cursor: pointer;
+    padding: auto;
+}
+
+.logo {
+    width: 1rem;
+    object-fit: contain;
+}
