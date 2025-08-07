@@ -1,4 +1,5 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
+import { ApiService } from '../services/api.service';
 
 @Component({
   selector: 'app-header',
@@ -7,6 +8,22 @@ import { Component } from '@angular/core';
   templateUrl: './header.html',
   styleUrl: './header.scss'
 })
-export class Header {
+export class Header implements OnInit {
+  logo = '';
 
+  constructor(private apiService: ApiService) {}
+
+  async ngOnInit(): Promise<void> {
+    try {
+      const data = await this.apiService.getData();
+
+      if (data) {
+        this.logo = 'data:image/jpeg;base64,' + data.logo;
+      } else {
+        console.error('Data received in HeaderComponent is undefined or null');
+      }
+    } catch (error) {
+      console.error('Error fetching data in HeaderComponent:', error);
+    }
+  }
 }
