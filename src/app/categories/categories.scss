@@ -1,0 +1,18 @@
+ul {
+    display:flex;
+    flex-direction: column;
+}
+
+.category {
+    padding: 1rem .5rem 3rem;
+    border-bottom: 1px solid #eee;
+    background: none;
+    border: none;
+    border-top: 1px solid #eee;
+    text-align: left;
+    cursor: pointer;
+}
+
+.category:hover {
+    background-color: #f0f0f0;
+}
