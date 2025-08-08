@@ -37,9 +37,5 @@ export class CategoriesComponent {
   onCategoryClick(category: { id: string; products: any[] }) {
     this.selectedProducts = category.products;
   }
-
-  trackById(_: number, item: { id: string }) {
-    return item.id;
-  }
 }
 
