@@ -2,7 +2,7 @@
   @if (selectedProducts.length === 0) {
   <ul>
     @for (cat of categories; track cat.id) {
-      <button class="category" (click)="onCategoryClick(cat)">
+      <button class="category" [id]="cat.id" (click)="onCategoryClick(cat)">
         {{ cat.name }}
       </button>
     }

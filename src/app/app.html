@@ -1,6 +1,12 @@
-<app-header />
+<app-header
+  [selectedProducts]="selectedProducts"
+  (goBack)="clearSelection()"
+></app-header>
 
 <main>
-    <app-categories/>
+  <app-categories
+    [selectedProducts]="selectedProducts"
+    (productsChange)="onProductsChanged($event)"
+  ></app-categories>
 </main>
 <router-outlet />

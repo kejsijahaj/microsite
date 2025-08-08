@@ -1,4 +1,4 @@
-import { Component, Output, EventEmitter } from '@angular/core';
+import { Component, Input, Output, EventEmitter } from '@angular/core';
 import { ApiService } from '../services/api.service';
 
 @Component({
@@ -10,7 +10,7 @@ import { ApiService } from '../services/api.service';
 })
 export class CategoriesComponent {
   categories: Array<{ id: string; name: string; products: any[] }> = [];
-  selectedProducts: any[] = [];
+  @Input() selectedProducts: any[] = [];
 
   @Output() productsChange = new EventEmitter<any[]>();
 
@@ -34,8 +34,9 @@ export class CategoriesComponent {
     }
   }
 
-  onCategoryClick(category: { id: string; products: any[] }) {
-    this.selectedProducts = category.products;
+  onCategoryClick(category: {products: any[]}) {
+    this.selectedProducts = category.products
+    this.productsChange.emit(category.products);
   }
 }
 

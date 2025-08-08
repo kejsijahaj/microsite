@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
 import { ApiService } from '../services/api.service';
 
 @Component({
@@ -9,6 +9,9 @@ import { ApiService } from '../services/api.service';
   styleUrl: './header.scss'
 })
 export class Header implements OnInit {
+  @Input() selectedProducts: any[] = [];
+  @Output() goBack = new EventEmitter<void>();
+
   logo = '';
 
   constructor(private apiService: ApiService) {}
@@ -25,5 +28,9 @@ export class Header implements OnInit {
     } catch (error) {
       console.error('Error fetching data in HeaderComponent:', error);
     }
+  }
+
+  onReturnClick() {
+    this.goBack.emit();
   }
 }

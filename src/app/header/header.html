@@ -1,6 +1,11 @@
 <header>
   <div class="header-wrapper">
-    <button class="theme-btn">☾</button>
+    @if (selectedProducts.length === 0) {
+      <button class="theme-btn">☾</button>
+    } @else {
+      <button class="back-btn" (click)="onReturnClick()">←</button>
+    }
+    
     <img class="logo" src="{{ logo }}" alt="logo" />
     <h3> Company Name </h3>
     <button class="cart-btn">🛒</button>

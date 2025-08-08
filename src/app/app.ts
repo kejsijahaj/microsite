@@ -10,7 +10,13 @@ import { CategoriesComponent } from "./categories/categories";
   styleUrl: './app.scss'
 })
 export class App {
-  onSelectCategory(categoryId: string) {
-    console.log('Selected category ID:', categoryId);
+  selectedProducts: any[] = [];
+
+  onProductsChanged(products: any[]) {
+    this.selectedProducts = products;
+  }
+
+  clearSelection() {
+    this.selectedProducts = [];
   }
 }
