@@ -13,9 +13,13 @@
     <ul>
         @for (prod of selectedProducts; track prod.id) {
     
-            <button class="product">
+            <span class="product">
               {{ prod.name }} — {{ prod.unitPrice }}
-            </button>
+              <button class="add-btn" (click)="onAdd(prod)">+</button>
+              @if (cart.isInCart(prod.name)) {
+                <button class="remove-btn" (click)="onRemove(prod.name)">-</button>
+              }
+            </span>
         }
     </ul>
    }

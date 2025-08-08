@@ -1,5 +1,7 @@
 import { Component, Input, Output, EventEmitter } from '@angular/core';
 import { ApiService } from '../services/api.service';
+import { CartService } from '../services/cart.service';
+import { type CartItem } from '../cart/cart-item.model';
 
 @Component({
   selector: 'app-categories',
@@ -14,7 +16,7 @@ export class CategoriesComponent {
 
   @Output() productsChange = new EventEmitter<any[]>();
 
-  constructor(private apiService: ApiService) {}
+  constructor(private apiService: ApiService, public cart: CartService) {}
 
   async ngOnInit(): Promise<void> {
     try {
@@ -37,6 +39,14 @@ export class CategoriesComponent {
   onCategoryClick(category: {products: any[]}) {
     this.selectedProducts = category.products
     this.productsChange.emit(category.products);
+  }
+
+  onAdd(prod: any) {
+    this.cart.addItem(prod);
+  }
+
+  onRemove(prodName: string) {
+    this.cart.removeItem(prodName);
   }
 }
 
