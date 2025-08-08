@@ -1,33 +1,45 @@
-import { Component } from '@angular/core';
-import { ApiService, ApiResponse } from '../services/api.service';
+import { Component, Output, EventEmitter } from '@angular/core';
+import { ApiService } from '../services/api.service';
 
 @Component({
   selector: 'app-categories',
-  imports: [],
+  standalone: true,
+  imports: [ ],
   templateUrl: './categories.html',
-  styleUrl: './categories.scss'
+  styleUrls: ['./categories.scss']
 })
-export class Categories {
-  categories: any[] = [];
+export class CategoriesComponent {
+  categories: Array<{ id: string; name: string; products: any[] }> = [];
+  selectedProducts: any[] = [];
+
+  @Output() productsChange = new EventEmitter<any[]>();
 
   constructor(private apiService: ApiService) {}
-
 
   async ngOnInit(): Promise<void> {
     try {
       const data = await this.apiService.getData();
-      if (data && data.categories) {
-        this.categories = data.categories.map((category) => ({
-          id: category.id,
-          name: category.name,
-          products: category.products || []
+      if (data?.categories) {
+        this.categories = data.categories.map(cat => ({
+          id: cat.id,
+          name: cat.name,
+          products: (cat.products || []).map((p:any) => ({
+            name: p.name,
+            unitPrice: p.unitPrice
+          }))
         }));
-
-      } else {
-        console.error('No categories found in the data');
       }
-    } catch (error) {
-      console.error('Error fetching data:', error);
+    } catch (err) {
+      console.error('Error loading categories', err);
     }
   }
+
+  onCategoryClick(category: { id: string; products: any[] }) {
+    this.selectedProducts = category.products;
+  }
+
+  trackById(_: number, item: { id: string }) {
+    return item.id;
+  }
 }
+

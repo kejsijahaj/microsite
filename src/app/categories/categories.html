@@ -1,7 +1,22 @@
 <div class="categories">
+  @if (selectedProducts.length === 0) {
+  <ul>
+    @for (cat of categories; track cat.id) {
+      <button class="category" (click)="onCategoryClick(cat)">
+        {{ cat.name }}
+      </button>
+    }
+  </ul>
+  }
+
+   @if (selectedProducts.length > 0) {
     <ul>
-        @for ( category of categories; track category.id) {
-            <button class="category">{{category.name}}</button>
+        @for (prod of selectedProducts; track prod.id) {
+    
+            <button class="product">
+              {{ prod.name }} — {{ prod.unitPrice }}
+            </button>
         }
     </ul>
+   }
 </div>
