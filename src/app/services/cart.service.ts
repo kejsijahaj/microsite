@@ -31,6 +31,12 @@ export class CartService {
     getCount(): number {
         return this.items.length;
     }
+    getTotalQuantity() {
+        return this.items.reduce((s,i) => s + i.quantity, 0);
+    }
+    getTotalAmount() {
+        return this.items.reduce((s,i) => s + i.quantity * i.unitPrice, 0);
+    }
 
     clearCart() {
         this.items = [];

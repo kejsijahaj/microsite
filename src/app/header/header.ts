@@ -1,5 +1,7 @@
-import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
+import { Component, OnInit, Input, Output, EventEmitter, inject } from '@angular/core';
 import { ApiService } from '../services/api.service';
+import { CartService } from '../services/cart.service';
+import { CartUiService } from '../services/cart-ui.service';
 
 @Component({
   selector: 'app-header',
@@ -11,6 +13,9 @@ import { ApiService } from '../services/api.service';
 export class Header implements OnInit {
   @Input() selectedProducts: any[] = [];
   @Output() goBack = new EventEmitter<void>();
+
+  cart = inject(CartService);
+  ui = inject(CartUiService);
 
   logo = '';
 
@@ -32,5 +37,9 @@ export class Header implements OnInit {
 
   onReturnClick() {
     this.goBack.emit();
+  }
+
+  openCart() {
+    this.ui.openDialog();
   }
 }

@@ -1,0 +1,50 @@
+<!-- the backdrop -->
+<div class="backdrop" (click)="close()" aria-hidden="true"></div>
+
+<!-- the panel -->
+ <div class="panel" role="dialog">
+    <header class="panel-header">
+        <h2 id="cart-title">My Cart</h2>
+        <button #closeBtn class="close-btn" (click)="close()">✕</button>
+    </header>
+
+    @if (cart.items.length === 0) {
+        <p>Your cart is empty!</p>
+    } @else {
+        <div class="list">
+            @for (item of cart.items; track item.name) {
+                <div class="row">
+                    <div class="meta">
+                        <div class="name">{{ item.name }}</div>
+                        <div class="price">{{ item.unitPrice }}</div>
+                        <!-- <div class="quantity">{{ item.quantity }}</div> -->
+                    </div>
+
+                    <div class="quantity">
+                        <button class="remove-item-btn" (click)="cart.removeItem(item.name)">-</button>
+
+                        <span class="count"> {{ item.quantity }}</span>
+
+                        <button class="add-item-btn" (click)="cart.addItem({name: item.name, unitPrice: item.unitPrice})">+</button>
+                    </div>
+
+                    <div class="line-total">
+                        {{item.quantity*item.unitPrice}}
+                    </div>
+                </div>
+            }
+        </div>
+
+        <div class="summary">
+            <div>Total items: {{cart.getTotalQuantity()}}</div>
+            <div>Subtotal: {{cart.getTotalAmount()}}</div>
+        </div>
+
+        <footer class="actions">
+            <button class="btn warn" (click)="cart.clearCart()">Clear</button>
+            <span class="spacer"></span>
+            <button class="btn" (click)="close()">Close</button>
+            <button class="btn primary">Checkout</button>
+        </footer>
+    }
+ </div>

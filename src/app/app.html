@@ -8,5 +8,8 @@
     [selectedProducts]="selectedProducts"
     (productsChange)="onProductsChanged($event)"
   ></app-categories>
+
+  @if (ui.isOpen()) {
+  <app-cart-dialog />
+  }
 </main>
-<router-outlet />
