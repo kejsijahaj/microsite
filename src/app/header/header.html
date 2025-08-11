@@ -1,7 +1,7 @@
 <header>
   <div class="header-wrapper">
     @if (selectedProducts.length === 0) {
-      <button class="theme-btn">☾</button>
+      <button class="theme-btn" (click)="toggleTheme()">☾</button>
     } @else {
       <button class="back-btn" (click)="onReturnClick()">←</button>
     }

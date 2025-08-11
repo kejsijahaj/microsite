@@ -2,6 +2,7 @@ import { Component, OnInit, Input, Output, EventEmitter, inject } from '@angular
 import { ApiService } from '../services/api.service';
 import { CartService } from '../services/cart.service';
 import { CartUiService } from '../services/cart-ui.service';
+import { ThemeService } from '../services/theme.service';
 
 @Component({
   selector: 'app-header',
@@ -16,6 +17,7 @@ export class Header implements OnInit {
 
   cart = inject(CartService);
   ui = inject(CartUiService);
+  theme = inject(ThemeService);
 
   logo = '';
 
@@ -41,5 +43,9 @@ export class Header implements OnInit {
 
   openCart() {
     this.ui.openDialog();
+  }
+
+  toggleTheme() {
+    this.theme.toggle();
   }
 }

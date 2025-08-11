@@ -1,3 +1,33 @@
 /* You can add global styles to this file, and also import other style files */
 
-.no-scroll { overflow: hidden;}
+.no-scroll {
+  overflow: hidden;
+}
+
+// light theme (default)
+
+:root {
+  --bg: white;
+  --surface: #ffffff;
+  --elevated: #f7f7f8;
+  --backdrop: rgba(0, 0, 0, 0.45);
+}
+
+// dark theme
+
+:root[data-theme="dark"] {
+  --bg: #0b0e14;
+  --surface: #11151c;
+  --elevated: #161b22;
+  --backdrop: rgba(0, 0, 0, 0.6);
+}
+
+html, body {
+  height: 100%;
+  background: var(--bg);
+  color: var(--text);
+}
+
+.theme-transition * {
+  transition: background-color .25s, color .25s, border-color .25s, box-shadow .25s;
+}
