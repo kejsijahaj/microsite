@@ -1,0 +1,18 @@
+<div class="backdrop" (click)="close()"></div>
+
+<div class="panel" role="dialog" (click)="$event.stopPropagation()">
+  <header class="panel-header">
+    <h2 id="success-title">Success</h2>
+    <button #closeBtn class="icon-btn" (click)="close()">✕</button>
+  </header>
+
+  <div class="content">
+    <div class="icon">✅</div>
+    <p class="msg">{{ success.message }}</p>
+  </div>
+
+  <footer class="actions">
+    <span class="spacer"></span>
+    <button class="btn primary" (click)="close()">Close</button>
+  </footer>
+</div>

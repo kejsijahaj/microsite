@@ -1,6 +1,7 @@
 import { Component, ElementRef, OnDestroy, OnInit, ViewChild, inject } from '@angular/core';
 import { CartService } from '../../services/cart.service';
 import { CartUiService } from '../../services/cart-ui.service';
+import { SuccessUiService } from '../../services/success-ui.service';
 
 @Component({
   selector: 'app-cart-dialog',
@@ -11,6 +12,7 @@ import { CartUiService } from '../../services/cart-ui.service';
 export class CartDialog {
   cart = inject(CartService);
   ui = inject(CartUiService);
+  success = inject(SuccessUiService)
 
   @ViewChild('closeBtn') closeBtn!: ElementRef<HTMLButtonElement>;
   private previouslyFocused?: HTMLElement;
@@ -32,6 +34,12 @@ export class CartDialog {
 
   close() {
     this.ui.closeDialog();
+  }
+
+  checkout() {
+    this.cart.clearCart();
+    this.ui.closeDialog();
+    this.success.openDialog('Thank you for your order!');
   }
 
 }

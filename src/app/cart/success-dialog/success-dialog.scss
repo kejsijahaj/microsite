@@ -1,0 +1,75 @@
+$overlay-bg: rgba(0, 0, 0, 0.45);
+$radius: 16px;
+$shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+$primary: #0d6efd;
+
+:host {
+  position: fixed;
+  inset: 0;
+  z-index: 10010; // above cart dialog
+  display: grid;
+  place-items: center;
+}
+
+.backdrop {
+  position: fixed;
+  inset: 0;
+  background: $overlay-bg;
+}
+
+.panel {
+  position: relative;
+  background: #fff;
+  width: min(90vw, 420px);
+  max-height: 80vh;
+  border-radius: $radius;
+  padding: 16px;
+  box-shadow: $shadow;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+
+  .panel-header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+  }
+}
+
+.icon-btn {
+  border: none;
+  background: transparent;
+  font-size: 20px;
+  line-height: 1;
+  cursor: pointer;
+  padding: 6px;
+}
+
+.content {
+  display: grid;
+  justify-items: center;
+  gap: 8px;
+  margin: 16px 0;
+
+  .icon { font-size: 44px; }
+  .msg { text-align: center; font-size: 1.05rem; }
+}
+
+.actions {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+
+  .spacer { flex: 1; }
+  .btn {
+    padding: 8px 12px;
+    border-radius: 10px;
+    border: 1px solid #ddd;
+    background: #f7f7f7;
+    cursor: pointer;
+
+    &.primary {
+      background: $primary; border-color: $primary; color: #fff;
+    }
+  }
+}
