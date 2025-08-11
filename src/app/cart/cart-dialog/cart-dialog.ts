@@ -9,7 +9,7 @@ import { SuccessUiService } from '../../services/success-ui.service';
   templateUrl: './cart-dialog.html',
   styleUrl: './cart-dialog.scss'
 })
-export class CartDialog {
+export class CartDialog implements OnInit, OnDestroy{
   cart = inject(CartService);
   ui = inject(CartUiService);
   success = inject(SuccessUiService)

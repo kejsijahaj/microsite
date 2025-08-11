@@ -1,14 +1,13 @@
 import { Component, Input, Output, EventEmitter } from '@angular/core';
 import { ApiService } from '../services/api.service';
 import { CartService } from '../services/cart.service';
-import { type CartItem } from '../cart/cart-item.model';
 
 @Component({
   selector: 'app-categories',
   standalone: true,
-  imports: [ ],
+  imports: [],
   templateUrl: './categories.html',
-  styleUrls: ['./categories.scss']
+  styleUrls: ['./categories.scss'],
 })
 export class CategoriesComponent {
   categories: Array<{ id: string; name: string; products: any[] }> = [];
@@ -22,13 +21,13 @@ export class CategoriesComponent {
     try {
       const data = await this.apiService.getData();
       if (data?.categories) {
-        this.categories = data.categories.map(cat => ({
+        this.categories = data.categories.map((cat) => ({
           id: cat.id,
           name: cat.name,
-          products: (cat.products || []).map((p:any) => ({
+          products: (cat.products || []).map((p: any) => ({
             name: p.name,
-            unitPrice: p.unitPrice
-          }))
+            unitPrice: p.unitPrice,
+          })),
         }));
       }
     } catch (err) {
@@ -36,8 +35,8 @@ export class CategoriesComponent {
     }
   }
 
-  onCategoryClick(category: {products: any[]}) {
-    this.selectedProducts = category.products
+  onCategoryClick(category: { products: any[] }) {
+    this.selectedProducts = category.products;
     this.productsChange.emit(category.products);
   }
 
@@ -48,5 +47,5 @@ export class CategoriesComponent {
   onRemove(prodName: string) {
     this.cart.removeItem(prodName);
   }
-}
 
+}
