@@ -2,27 +2,25 @@
   @if (selectedProducts.length === 0) {
   <ul>
     @for (cat of categories; track cat.id) {
-      <button class="category" [id]="cat.id" (click)="onCategoryClick(cat)">
-        {{ cat.name }}
-      </button>
+    <button class="category" [id]="cat.id" (click)="onCategoryClick(cat)">
+      {{ cat.name }}
+    </button>
+    }
+  </ul>
+  } @if (selectedProducts.length > 0) {
+  <ul>
+    @for (prod of selectedProducts; track prod.id) { @let qty =
+    cart.getQuantityByName(prod.name);
+
+    <span class="product">
+      {{ prod.name }} — {{ prod.unitPrice }}
+      @if (cart.isInCart(prod.name)) {
+      <button class="remove-btn" (click)="onRemove(prod.name)">-</button>
+      <span class="qty"> {{ qty }}</span>
+      }
+      <button class="add-btn" (click)="onAdd(prod)">+</button>
+    </span>
     }
   </ul>
   }
-
-   @if (selectedProducts.length > 0) {
-    <ul>
-        @for (prod of selectedProducts; track prod.id) {
-          @let qty = cart.getQuantityByName(prod.name);
-    
-            <span class="product">
-              {{ prod.name }} — {{ prod.unitPrice }}
-              @if (cart.isInCart(prod.name)) {
-                <button class="remove-btn" (click)="onRemove(prod.name)">-</button>
-                <span class="qty"> {{ qty }}</span>
-              }
-              <button class="add-btn" (click)="onAdd(prod)">+</button>
-            </span>
-        }
-    </ul>
-   }
 </div>

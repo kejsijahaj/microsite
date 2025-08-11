@@ -1,6 +1,6 @@
 import { Component, OnInit, inject } from '@angular/core';
-import { Header } from "./header/header";
-import { CategoriesComponent } from "./categories/categories";
+import { Header } from './header/header';
+import { CategoriesComponent } from './categories/categories';
 import { CartUiService } from './services/cart-ui.service';
 import { CartDialog } from './cart/cart-dialog/cart-dialog';
 import { SuccessUiService } from './services/success-ui.service';
@@ -11,7 +11,7 @@ import { ThemeService } from './services/theme.service';
   selector: 'app-root',
   imports: [Header, CategoriesComponent, CartDialog, SuccessDialog],
   templateUrl: './app.html',
-  styleUrl: './app.scss'
+  styleUrl: './app.scss',
 })
 export class App {
   selectedProducts: any[] = [];

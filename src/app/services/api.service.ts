@@ -12,7 +12,6 @@ export interface ApiResponse {
 @Injectable({
   providedIn: 'root',
 })
-
 export class ApiService {
   private apiUrl = 'https://test.dev.al/test/';
 

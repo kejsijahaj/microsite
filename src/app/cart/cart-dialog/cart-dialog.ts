@@ -1,4 +1,11 @@
-import { Component, ElementRef, OnDestroy, OnInit, ViewChild, inject } from '@angular/core';
+import {
+  Component,
+  ElementRef,
+  OnDestroy,
+  OnInit,
+  ViewChild,
+  inject,
+} from '@angular/core';
 import { CartService } from '../../services/cart.service';
 import { CartUiService } from '../../services/cart-ui.service';
 import { SuccessUiService } from '../../services/success-ui.service';
@@ -7,18 +14,19 @@ import { SuccessUiService } from '../../services/success-ui.service';
   selector: 'app-cart-dialog',
   imports: [],
   templateUrl: './cart-dialog.html',
-  styleUrl: './cart-dialog.scss'
+  styleUrl: './cart-dialog.scss',
 })
-export class CartDialog implements OnInit, OnDestroy{
+export class CartDialog implements OnInit, OnDestroy {
   cart = inject(CartService);
   ui = inject(CartUiService);
-  success = inject(SuccessUiService)
+  success = inject(SuccessUiService);
 
   @ViewChild('closeBtn') closeBtn!: ElementRef<HTMLButtonElement>;
   private previouslyFocused?: HTMLElement;
 
   ngOnInit() {
-    this.previouslyFocused = document.activeElement as HTMLElement | null || undefined;
+    this.previouslyFocused =
+      (document.activeElement as HTMLElement | null) || undefined;
     setTimeout(() => this.closeBtn?.nativeElement.focus(), 0);
     document.addEventListener('keydown', this.onKey);
   }
@@ -41,5 +49,4 @@ export class CartDialog implements OnInit, OnDestroy{
     this.ui.closeDialog();
     this.success.openDialog('Thank you for your order!');
   }
-
 }

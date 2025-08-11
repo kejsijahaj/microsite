@@ -1,4 +1,11 @@
-import { Component, OnInit, Input, Output, EventEmitter, inject } from '@angular/core';
+import {
+  Component,
+  OnInit,
+  Input,
+  Output,
+  EventEmitter,
+  inject,
+} from '@angular/core';
 import { ApiService } from '../services/api.service';
 import { CartService } from '../services/cart.service';
 import { CartUiService } from '../services/cart-ui.service';
@@ -9,7 +16,7 @@ import { ThemeService } from '../services/theme.service';
   standalone: true,
   imports: [],
   templateUrl: './header.html',
-  styleUrl: './header.scss'
+  styleUrl: './header.scss',
 })
 export class Header implements OnInit {
   @Input() selectedProducts: any[] = [];

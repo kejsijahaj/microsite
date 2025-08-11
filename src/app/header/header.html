@@ -1,13 +1,13 @@
 <header>
   <div class="header-wrapper">
     @if (selectedProducts.length === 0) {
-      <button class="theme-btn" (click)="toggleTheme()">☾</button>
+    <button class="theme-btn" (click)="toggleTheme()">☾</button>
     } @else {
-      <button class="back-btn" (click)="onReturnClick()">←</button>
+    <button class="back-btn" (click)="onReturnClick()">←</button>
     }
-    
+
     <img class="logo" src="{{ logo }}" alt="logo" />
-    <h3> Company Name </h3>
+    <h3>Company Name</h3>
     <button class="cart-btn" (click)="openCart()">🛒</button>
   </div>
 </header>

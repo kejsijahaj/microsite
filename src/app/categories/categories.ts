@@ -47,5 +47,4 @@ export class CategoriesComponent {
   onRemove(prodName: string) {
     this.cart.removeItem(prodName);
   }
-
 }
