@@ -13,12 +13,15 @@
     cart.getQuantityByName(prod.name);
 
     <span class="product">
-      {{ prod.name }} — {{ prod.unitPrice }}
-      @if (cart.isInCart(prod.name)) {
-      <button class="remove-btn" (click)="onRemove(prod.name)">-</button>
-      <span class="qty"> {{ qty }}</span>
-      }
-      <button class="add-btn" (click)="onAdd(prod)">+</button>
+      {{ prod.name }} <br>
+      {{ prod.unitPrice }} leke
+      <div class="prod-btns">
+        @if (cart.isInCart(prod.name)) {
+        <button class="remove-btn" (click)="onRemove(prod.name)">-</button>
+        <span class="qty"> {{ qty }}</span>
+        }
+        <button class="add-btn" (click)="onAdd(prod)">+</button>
+      </div>
     </span>
     }
   </ul>
