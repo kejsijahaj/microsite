@@ -1,11 +1,3 @@
-$overlay-bg: rgba(0, 0, 0, 0.63);
-$radius: 20px;
-$shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
-$primary: #7d407d;
-$warn-bg: #fae2fa;
-$warn-border: #d7b2d7;
-$warn-text: #6c376c;
-
 :host {
   position: fixed;
   inset: 0;
@@ -17,30 +9,31 @@ $warn-text: #6c376c;
 .backdrop {
   position: fixed;
   inset: 0;
-  background: $overlay-bg;
+  background: var(--backdrop);
 }
 
 .panel {
   position: relative;
-  background: #edebed;
+  background: var(--panel-bg-color);
   width: min(95vw, 550px);
   max-height: 85vh;
-  border-radius: $radius;
+  border-radius: 20px;
   padding: 16px;
-  box-shadow: $shadow;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);;
   display: flex;
   flex-direction: column;
   gap: 12px;
 
   @media (max-width: 600px) {
     width: 65vw;
-    border-radius: $radius;
+    border-radius: 20px;
   }
 
   &-header {
     display: flex;
     align-items: center;
     justify-content: space-between;
+    color: var(--text-color);
 
     #cart-title {
       font-weight: 400;
@@ -77,10 +70,12 @@ $warn-text: #6c376c;
 .meta {
   .name {
     font-weight: 400;
+    color: var(--text-color);
   }
   .price {
     font-size: 0.9rem;
     opacity: 0.75;
+    color: var(--text-color);
   }
 }
 
@@ -88,6 +83,7 @@ $warn-text: #6c376c;
   display: flex;
   align-items: center;
   gap: 10px;
+  color: var(--text-color);
 
   .count {
     min-width: 24px;
@@ -102,6 +98,7 @@ $warn-text: #6c376c;
   padding-top: 10px;
   padding-bottom: 10px;
   border-top: 1px solid #eee;
+  color: var(--text-color);
 }
 
 .add-item-btn,
@@ -111,6 +108,7 @@ $warn-text: #6c376c;
   background: transparent;
   font-size: 20px;
   line-height: 1;
+  color: var(--text-color);
   cursor: pointer;
   padding: 10px;
 }
@@ -126,21 +124,17 @@ $warn-text: #6c376c;
 
   .btn {
     padding: 8px 12px;
-    border-radius: 10px;
-    border: 1px solid #ddd;
-    background: #f7f7f7;
+    border: none;
     cursor: pointer;
+    color: var(--text-color);
+    background-color: var(--panel-bg-color);
 
     &.primary {
-      background: $primary;
-      border-color: $primary;
-      color: #fff;
+      color: var(--dialog-btn-color);
     }
 
     &.warn {
-      background: $warn-bg;
-      border-color: $warn-border;
-      color: $warn-text;
+      color: var(--dialog-btn-color);
     }
   }
 }

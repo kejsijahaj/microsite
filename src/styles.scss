@@ -35,19 +35,31 @@ body {
 // light theme (default)
 
 :root {
-  --bg: white;
-  --surface: #ffffff;
-  --elevated: #f7f7f8;
-  --backdrop: rgba(0, 0, 0, 0.45);
+  --bg: #fffefe;
+  --ul-background: #f6f5f5;
+  --add-btn-color: #702963;
+  --remove-btn-color: #800000;
+  --header-wrapper-bg: #f8f8f8;
+  --text-color:  black;
+  --backdrop: rgba(0, 0, 0, 0.63);
+  --panel-bg-color: #edebed;
+  --dialog-btn-color: #7d407d;
+  --icon-color: #434446;
 }
 
 // dark theme
 
 :root[data-theme="dark"] {
-  --bg: #0b0e14;
-  --surface: #11151c;
-  --elevated: #161b22;
+  --bg: #1b202b;
+  --ul-background: #191e28;
+  --add-btn-color: #702963;
+  --remove-btn-color: #800000;
+  --header-wrapper-bg: #191e28;
+  --text-color: #f6f5f5;
   --backdrop: rgba(0, 0, 0, 0.6);
+  --panel-bg-color: rgb(83, 85, 95);
+  --dialog-btn-color: #ddafdd;
+  --icon-color: #f6f5f5;
 }
 
 html,

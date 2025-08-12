@@ -3,12 +3,13 @@ ul {
   flex-direction: column;
   padding: 0 0.5rem 3rem;
   margin: 10px;
-  background-color: #f6f5f5;
+  background-color: var(--ul-background);
 }
 
 .category {
   padding: 1rem 0.5rem 3rem;
   background: none;
+  color: var(--text-color);
   border: none;
   border-top: 1px solid #7f757f;
   text-align: left;
@@ -27,6 +28,7 @@ ul {
 .product {
   display: flex;
   font-size: 18px;
+  color: var(--text-color);
   justify-content: space-between;
   padding: 1rem 0.5rem 1.5rem;
   border: 1px solid #989398;
@@ -69,5 +71,5 @@ ul {
 }
 
 .category:hover {
-  background-color: #f0f0f0;
+  background-color: var(--hover-color);
 }
