@@ -11,7 +11,7 @@
   </header>
 
   @if (cart.items.length === 0) {
-  <p>Your cart is empty!</p>
+  <p class="empty-msg">Your cart is empty!</p>
   } @else {
   <div class="list">
     @for (item of cart.items; track item.name) {

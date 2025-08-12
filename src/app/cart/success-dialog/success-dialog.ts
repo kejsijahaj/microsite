@@ -7,10 +7,11 @@ import {
   inject,
 } from '@angular/core';
 import { SuccessUiService } from '../../services/success-ui.service';
+import { MatIconModule } from '@angular/material/icon';
 
 @Component({
   selector: 'app-success-dialog',
-  imports: [],
+  imports: [MatIconModule],
   templateUrl: './success-dialog.html',
   styleUrl: './success-dialog.scss',
 })

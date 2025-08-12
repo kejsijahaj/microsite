@@ -57,6 +57,10 @@ $warn-text: #6c376c;
   padding-right: 2px;
 }
 
+.empty-msg {
+  text-align: center;
+}
+
 .row {
   display: grid;
   grid-template-columns: 1fr auto auto;
