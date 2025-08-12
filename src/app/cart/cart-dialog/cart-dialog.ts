@@ -9,10 +9,11 @@ import {
 import { CartService } from '../../services/cart.service';
 import { CartUiService } from '../../services/cart-ui.service';
 import { SuccessUiService } from '../../services/success-ui.service';
+import { MatIconModule } from '@angular/material/icon';
 
 @Component({
   selector: 'app-cart-dialog',
-  imports: [],
+  imports: [MatIconModule],
   templateUrl: './cart-dialog.html',
   styleUrl: './cart-dialog.scss',
 })

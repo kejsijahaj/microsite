@@ -1,64 +1,73 @@
 ul {
-    display:flex;
-    flex-direction: column;
-    padding: 0 .5rem 3rem;
-    margin: 10px;
-    background-color: #f6f5f5;
+  display: flex;
+  flex-direction: column;
+  padding: 0 0.5rem 3rem;
+  margin: 10px;
+  background-color: #f6f5f5;
 }
 
 .category {
-    padding: 1rem .5rem 3rem;
-    background: none;
-    border: none;
-    border-top: 1px solid #7f757f;
-    text-align: left;
-    font-size: 16px;
-    cursor: pointer;
+  padding: 1rem 0.5rem 3rem;
+  background: none;
+  border: none;
+  border-top: 1px solid #7f757f;
+  text-align: left;
+  font-size: 16px;
+  cursor: pointer;
+
+  &:first-child {
+    border-top: 0;
+  }
+
+  &:last-child {
+    padding-bottom: 1rem;
+  }
 }
 
 .product {
-    display: flex;
-    font-size: 18px;
-    justify-content: space-between;
-    padding: 1rem .5rem 1.5rem;
-    border: 1px solid #989398;
-    border-radius: 20px;
-    margin: 5px;
+  display: flex;
+  font-size: 18px;
+  justify-content: space-between;
+  padding: 1rem 0.5rem 1.5rem;
+  border: 1px solid #989398;
+  border-radius: 20px;
+  margin: 5px;
 }
 
 .prod-btns {
-    display: flex;
-    margin-right: 10px;
-    gap: 20px;
+  display: flex;
+  margin-right: 10px;
+  gap: 20px;
 }
 
-.remove-btn, .add-btn {
-    border-radius: 50px;
-    border: none;
-    font-size: 22px;
-    font-weight: light;
-    text-align: center;
-    padding: .5rem;
-    height: 3rem;
-    width: 3rem;
+.remove-btn,
+.add-btn {
+  border-radius: 50px;
+  border: none;
+  font-size: 22px;
+  font-weight: light;
+  text-align: center;
+  padding: 0.5rem;
+  height: 3rem;
+  width: 3rem;
 }
 
 .add-btn {
-    background-color: #702963;
-    color: whitesmoke;
+  background-color: #702963;
+  color: whitesmoke;
 }
 
 .remove-btn {
-    background-color: #800000;
-    color: whitesmoke;
+  background-color: #800000;
+  color: whitesmoke;
 }
 
 .qty {
-    text-align: center;
-    margin: 5px;
-    padding-top: .5rem;
+  text-align: center;
+  margin: 5px;
+  padding-top: 0.5rem;
 }
 
 .category:hover {
-    background-color: #f0f0f0;
+  background-color: #f0f0f0;
 }

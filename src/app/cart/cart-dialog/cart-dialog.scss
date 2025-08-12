@@ -1,21 +1,17 @@
-
-$overlay-bg: rgba(0, 0, 0, 0.45);
-$panel-width: 520px;
-$radius: 16px;
+$overlay-bg: rgba(0, 0, 0, 0.63);
+$radius: 20px;
 $shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
-$primary: #0d6efd;
-$warn-bg: #fff5f5;
-$warn-border: #f1c0c0;
-$warn-text: #b42318;
+$primary: #7d407d;
+$warn-bg: #fae2fa;
+$warn-border: #d7b2d7;
+$warn-text: #6c376c;
 
-// fullscreen overlay
 :host {
   position: fixed;
   inset: 0;
   z-index: 10000;
   display: grid;
   place-items: center;
-
 }
 
 .backdrop {
@@ -26,8 +22,8 @@ $warn-text: #b42318;
 
 .panel {
   position: relative;
-  background: #fff;
-  width: min(95vw, $panel-width);
+  background: #edebed;
+  width: min(95vw, 550px);
   max-height: 85vh;
   border-radius: $radius;
   padding: 16px;
@@ -37,14 +33,18 @@ $warn-text: #b42318;
   gap: 12px;
 
   @media (max-width: 600px) {
-    width: 70vw;
-    border-radius: $radius $radius 0 0;
+    width: 65vw;
+    border-radius: $radius;
   }
 
   &-header {
     display: flex;
     align-items: center;
     justify-content: space-between;
+
+    #cart-title {
+      font-weight: 400;
+    }
   }
 }
 
@@ -54,16 +54,16 @@ $warn-text: #b42318;
 
 .list {
   overflow: auto;
-  padding-right: 6px;
+  padding-right: 2px;
 }
 
 .row {
   display: grid;
   grid-template-columns: 1fr auto auto;
-  gap: 12px;
+  gap: 15px;
   align-items: center;
   padding: 8px 0;
-  border-bottom: 1px solid #eee;
+  border-bottom: 1px solid #b7b6b6;
 
   &:last-child {
     border-bottom: 0;
@@ -72,7 +72,7 @@ $warn-text: #b42318;
 
 .meta {
   .name {
-    font-weight: 600;
+    font-weight: 400;
   }
   .price {
     font-size: 0.9rem;
@@ -80,10 +80,10 @@ $warn-text: #b42318;
   }
 }
 
-.qty {
+.quantity {
   display: flex;
   align-items: center;
-  gap: 8px;
+  gap: 10px;
 
   .count {
     min-width: 24px;
@@ -92,30 +92,29 @@ $warn-text: #b42318;
   }
 }
 
-.line-total {
-  font-weight: 600;
-}
-
 .summary {
   display: flex;
   justify-content: space-between;
-  padding-top: 8px;
+  padding-top: 10px;
+  padding-bottom: 10px;
   border-top: 1px solid #eee;
 }
 
-.icon-btn {
+.add-item-btn,
+.remove-item-btn,
+.close-btn {
   border: none;
   background: transparent;
   font-size: 20px;
   line-height: 1;
   cursor: pointer;
-  padding: 6px;
+  padding: 10px;
 }
 
 .actions {
   display: flex;
   align-items: center;
-  gap: 8px;
+  gap: 10px;
 
   .spacer {
     flex: 1;

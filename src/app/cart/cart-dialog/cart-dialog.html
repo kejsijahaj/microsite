@@ -5,7 +5,9 @@
 <div class="panel" role="dialog">
   <header class="panel-header">
     <h2 id="cart-title">My Cart</h2>
-    <button #closeBtn class="close-btn" (click)="close()">✕</button>
+    <button #closeBtn class="close-btn" (click)="close()">
+      <mat-icon>close_small</mat-icon>
+    </button>
   </header>
 
   @if (cart.items.length === 0) {
@@ -16,8 +18,7 @@
     <div class="row">
       <div class="meta">
         <div class="name">{{ item.name }}</div>
-        <div class="price">{{ item.unitPrice }}</div>
-        <!-- <div class="quantity">{{ item.quantity }}</div> -->
+        <div class="price">{{ item.quantity * item.unitPrice }} L</div>
       </div>
 
       <div class="quantity">
@@ -34,17 +35,13 @@
           +
         </button>
       </div>
-
-      <div class="line-total">
-        {{ item.quantity * item.unitPrice }}
-      </div>
     </div>
     }
   </div>
 
   <div class="summary">
     <div>Total items: {{ cart.getTotalQuantity() }}</div>
-    <div>Subtotal: {{ cart.getTotalAmount() }}</div>
+    <div>Amount: {{ cart.getTotalAmount() }} L</div>
   </div>
 
   <footer class="actions">
