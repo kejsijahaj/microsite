@@ -1,13 +1,13 @@
 <header>
   <div class="header-wrapper">
     @if (selectedProducts.length === 0) {
-    <button class="theme-btn" (click)="toggleTheme()">☾</button>
+    <button class="theme-btn" (click)="toggleTheme()"><mat-icon>dark_mode</mat-icon></button>
     } @else {
-    <button class="back-btn" (click)="onReturnClick()">←</button>
+    <button class="back-btn" (click)="onReturnClick()"><mat-icon>arrow_back</mat-icon></button>
     }
 
-    <img class="logo" src="{{ logo }}" alt="logo" />
+    <!-- <img class="logo" src="{{ logo }}" alt="logo" /> -->
     <h3>Company Name</h3>
-    <button class="cart-btn" (click)="openCart()">🛒</button>
+    <button class="cart-btn" (click)="openCart()"><mat-icon>shopping_cart</mat-icon></button>
   </div>
 </header>

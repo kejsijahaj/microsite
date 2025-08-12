@@ -8,15 +8,20 @@
     background-color: #f8f8f8;
 }
 
+h3 {
+    font-weight: 150;
+    font-size: 20px;
+}
+
 .theme-btn, .cart-btn, .back-btn {
     background: none;
     border: none;
-    font-size: 1.5rem;
+    font-size: 1rem;
     cursor: pointer;
     padding: auto;
 }
 
-.logo {
-    width: 1rem;
-    object-fit: contain;
-}
+// .logo {
+//     width: 1rem;
+//     object-fit: contain;
+// }

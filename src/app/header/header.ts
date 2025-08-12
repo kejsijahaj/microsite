@@ -10,11 +10,12 @@ import { ApiService } from '../services/api.service';
 import { CartService } from '../services/cart.service';
 import { CartUiService } from '../services/cart-ui.service';
 import { ThemeService } from '../services/theme.service';
+import { MatIconModule } from '@angular/material/icon';
 
 @Component({
   selector: 'app-header',
   standalone: true,
-  imports: [],
+  imports: [MatIconModule],
   templateUrl: './header.html',
   styleUrl: './header.scss',
 })
