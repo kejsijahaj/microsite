@@ -60,4 +60,8 @@ export class Header implements OnInit {
   isDark(): boolean {
     return this.theme.isDark();
   }
+
+  get badgeAmount(): number {
+    return this.cart.getTotalQuantity();
+  }
 }
