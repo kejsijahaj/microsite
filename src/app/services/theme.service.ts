@@ -26,6 +26,10 @@ export class ThemeService {
     this.setTheme(this.current === 'dark' ? 'light' : 'dark');
   }
 
+  isDark() {
+    return this.current === 'dark';
+  }
+
   setTheme(theme: Theme, animate = true) {
     const root = document.documentElement;
 

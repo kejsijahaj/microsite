@@ -56,4 +56,8 @@ export class Header implements OnInit {
   toggleTheme() {
     this.theme.toggle();
   }
+
+  isDark(): boolean {
+    return this.theme.isDark();
+  }
 }

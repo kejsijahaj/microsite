@@ -1,7 +1,12 @@
 <header>
   <div class="header-wrapper">
     @if (selectedProducts.length === 0) {
-    <button class="theme-btn" (click)="toggleTheme()"><mat-icon>dark_mode</mat-icon></button>
+      @if (isDark()) {
+        <button class="theme-btn" (click)="toggleTheme()"><mat-icon>light_mode</mat-icon></button>
+      } @else {
+        <button class="theme-btn" (click)="toggleTheme()"><mat-icon>dark_mode</mat-icon></button>
+      }
+    
     } @else {
     <button class="back-btn" (click)="onReturnClick()"><mat-icon>arrow_back</mat-icon></button>
     }
