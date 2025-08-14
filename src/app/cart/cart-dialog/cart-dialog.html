@@ -26,7 +26,10 @@
           <mat-icon class="icon">remove</mat-icon>
         </button>
 
-        <span class="count"> {{ item.quantity }}</span>
+        <!-- i need to make this an input -->
+        <div class="input-wrapper">
+          <input class="count" [defaultValue]="item.quantity">
+        </div>
 
         <button
           class="add-item-btn"
