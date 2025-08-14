@@ -1,5 +1,9 @@
 <div class="categories">
-  @if (selectedProducts.length === 0) {
+  @if (loading()) {
+    <div class="spinner-wrap">
+      <div class="spinner" role="status"></div>
+    </div>
+  } @else { @if (selectedProducts.length === 0) {
   <ul>
     @for (cat of categories; track cat.id) {
     <button class="category" [id]="cat.id" (click)="onCategoryClick(cat)">
@@ -7,13 +11,13 @@
     </button>
     }
   </ul>
-  } @if (selectedProducts.length > 0) {
+  } } @if (selectedProducts.length > 0) {
   <ul>
     @for (prod of selectedProducts; track prod.id) { @let qty =
     cart.getQuantityByName(prod.name);
 
     <span class="product">
-      {{ prod.name }} <br>
+      {{ prod.name }} <br />
       {{ prod.unitPrice }} leke
       <div class="prod-btns">
         @if (cart.isInCart(prod.name)) {
