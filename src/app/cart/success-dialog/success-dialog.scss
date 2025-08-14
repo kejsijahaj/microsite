@@ -69,4 +69,8 @@
       color: var(--dialog-btn-color);
     }
   }
+
+  .primary:hover {
+    color: var(--dialog-btn-hover);
+  }
 }

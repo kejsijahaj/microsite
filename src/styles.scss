@@ -29,6 +29,7 @@ html {
 :root {
   --bg: #fffefe;
   --ul-background: #f6f5f5;
+  --hover-color: #eae7e7;
   --add-btn-color: #702963;
   --remove-btn-color: #800000;
   --header-wrapper-bg: #f8f8f8;
@@ -38,6 +39,10 @@ html {
   --dialog-btn-color: #7d407d;
   --icon-color: #434446;
   --spinner-color: #434446;
+  --icon-hover-color: #757679;
+  --text-hover: #404040;
+  --dialog-btn-hover: rgb(185, 145, 185);
+  --circle-hover: #b9b6b978;
 }
 
 // dark theme
@@ -54,6 +59,11 @@ html {
   --dialog-btn-color: #ddafdd;
   --icon-color: #f6f5f5;
   --spinner-color: #f6f5f5;
+  --hover-color: #28303f;
+  --icon-hover-color: #b3aeae;
+  --text-hover: #c7c5c5;
+  --dialog-btn-hover: #f9c8f9;
+  --circle-hover: rgba(106, 108, 120, 0.633);
 }
 
 html,

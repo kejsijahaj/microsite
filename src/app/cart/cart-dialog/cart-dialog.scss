@@ -52,12 +52,13 @@
 
 .empty-msg {
   text-align: center;
+  color: var(--text-color);
+  padding-bottom: 2rem;
 }
 
 .row {
   display: grid;
   grid-template-columns: 1fr auto auto;
-  gap: 15px;
   align-items: center;
   padding: 8px 0;
   border-bottom: 1px solid #b7b6b6;
@@ -81,6 +82,7 @@
 
 .quantity {
   display: flex;
+  justify-content: flex-end;
   align-items: center;
   gap: 10px;
   color: var(--text-color);
@@ -92,11 +94,12 @@
   }
 }
 
+
 .summary {
   display: flex;
   justify-content: space-between;
   padding-top: 10px;
-  padding-bottom: 10px;
+  padding-bottom: 30px;
   border-top: 1px solid #eee;
   color: var(--text-color);
 }
@@ -105,12 +108,23 @@
 .remove-item-btn,
 .close-btn {
   border: none;
+  width: 35px;
+  height: 35px;
   background: transparent;
-  font-size: 20px;
-  line-height: 1;
   color: var(--text-color);
   cursor: pointer;
-  padding: 10px;
+  padding: 5px;
+}
+
+.add-item-btn:hover,
+.remove-item-btn:hover,
+.close-btn:hover {
+  border-radius: 1000px;
+  border: none;
+  width: 35px;
+  height: 35px;
+  background-color: var(--circle-hover);
+  transition: background-color 0.3s ease;
 }
 
 .actions {
@@ -135,6 +149,18 @@
 
     &.warn {
       color: var(--dialog-btn-color);
+    }
+  }
+
+  .btn:hover {
+    color: var(--text-hover);
+
+    &.primary {
+      color: var(--dialog-btn-hover);
+    }
+
+    &.warn {
+      color: var(--dialog-btn-hover);
     }
   }
 }

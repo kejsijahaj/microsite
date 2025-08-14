@@ -3,7 +3,6 @@ ul {
   flex-direction: column;
   padding: 0 0.5rem 3rem;
   margin: 10px;
-  background-color: var(--ul-background);
 }
 
 .spinner-wrap {
@@ -14,18 +13,24 @@ ul {
 }
 
 .spinner {
-  width: 50px; height: 50px;
+  width: 50px;
+  height: 50px;
   border-radius: 50%;
   border: 4px solid transparent;
   border-top-color: var(--spinner-color);
   animation: spin 0.7s linear infinite;
 }
-@keyframes spin { to { transform: rotate(360deg); } }
+@keyframes spin {
+  to {
+    transform: rotate(360deg);
+  }
+}
 
 .category {
   padding: 1rem 0.5rem 3rem;
   background: none;
   color: var(--text-color);
+  background-color: var(--ul-background);
   border: none;
   border-top: 1px solid #7f757f;
   text-align: left;
@@ -35,10 +40,11 @@ ul {
   &:first-child {
     border-top: 0;
   }
+}
 
-  &:last-child {
-    padding-bottom: 1rem;
-  }
+.category:hover {
+  background-color: var(--hover-color);
+  transition: background-color 0.3s ease, transform 0.3s ease;
 }
 
 .product {
@@ -67,6 +73,8 @@ ul {
   border: none;
   height: 3rem;
   width: 3rem;
+  box-shadow: 0 1px 2px rgba(0, 0, 0, 0.08), 0 4px 10px rgba(0, 0, 0, 0.1),
+    inset 0 1px 0 rgba(255, 255, 255, 0.18);
 }
 
 .add-btn {
@@ -74,17 +82,27 @@ ul {
   color: whitesmoke;
 }
 
+.add-btn:hover {
+  background-color: #90357f;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1), 0 10px 20px rgba(0, 0, 0, 0.12),
+    inset 0 1px 0 rgba(255, 255, 255, 0.22);
+  transition: background-color 0.18s ease, box-shadow 0.18s ease;
+}
+
 .remove-btn {
   background-color: #800000;
   color: whitesmoke;
+}
+
+.remove-btn:hover {
+  background-color: #970000;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1), 0 10px 20px rgba(0, 0, 0, 0.12),
+    inset 0 1px 0 rgba(255, 255, 255, 0.22);
+  transition: background-color 0.18s ease, box-shadow 0.18s ease;
 }
 
 .qty {
   text-align: center;
   margin: 5px;
   padding-top: 0.5rem;
-}
-
-.category:hover {
-  background-color: var(--hover-color);
 }

@@ -6,7 +6,7 @@
   <header class="panel-header">
     <h2 id="cart-title">My Cart</h2>
     <button #closeBtn class="close-btn" (click)="close()">
-      <mat-icon>close_small</mat-icon>
+      <mat-icon class="icon">close_small</mat-icon>
     </button>
   </header>
 
@@ -23,7 +23,7 @@
 
       <div class="quantity">
         <button class="remove-item-btn" (click)="cart.removeItem(item.name)">
-          <mat-icon>remove</mat-icon>
+          <mat-icon class="icon">remove</mat-icon>
         </button>
 
         <span class="count"> {{ item.quantity }}</span>
@@ -32,7 +32,7 @@
           class="add-item-btn"
           (click)="cart.addItem({ name: item.name, unitPrice: item.unitPrice })"
         >
-          <mat-icon>add</mat-icon>
+          <mat-icon class="icon">add</mat-icon>
         </button>
       </div>
     </div>
