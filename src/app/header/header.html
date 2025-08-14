@@ -13,9 +13,12 @@
       <mat-icon>arrow_back</mat-icon>
     </button>
     }
-
-    <!-- <img class="logo" src="{{ logo }}" alt="logo" /> -->
-    <h3>Company Name</h3>
+    <div class="company-title">
+      @if (loading()) {
+      <div class="spinner" role="status"></div>
+      } @else {<img class="logo" src="{{ logo }}" alt="logo" />}
+      <h3>{{ businessName }}</h3>
+    </div>
     <button class="cart-btn" (click)="openCart()">
       @if (badgeAmount > 0) {
       <span class="icon-badge">{{ badgeAmount }}</span>
