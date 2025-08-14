@@ -21,10 +21,10 @@
       {{ prod.unitPrice }} leke
       <div class="prod-btns">
         @if (cart.isInCart(prod.name)) {
-        <button class="remove-btn" (click)="onRemove(prod.name)">-</button>
+        <button class="remove-btn" (click)="onRemove(prod.name)"><mat-icon>remove</mat-icon></button>
         <span class="qty"> {{ qty }}</span>
         }
-        <button class="add-btn" (click)="onAdd(prod)">+</button>
+        <button class="add-btn" (click)="onAdd(prod)"><mat-icon>add</mat-icon></button>
       </div>
     </span>
     }

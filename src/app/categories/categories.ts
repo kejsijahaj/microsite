@@ -2,11 +2,12 @@ import { Component, Input, Output, EventEmitter, signal } from '@angular/core';
 import { ApiService } from '../services/api.service';
 import { CartService } from '../services/cart.service';
 import { MatProgressSpinnerModule } from '@angular/material/progress-spinner';
+import { MatIconModule } from '@angular/material/icon';
 
 @Component({
   selector: 'app-categories',
   standalone: true,
-  imports: [MatProgressSpinnerModule],
+  imports: [MatProgressSpinnerModule, MatIconModule],
   templateUrl: './categories.html',
   styleUrls: ['./categories.scss'],
 })

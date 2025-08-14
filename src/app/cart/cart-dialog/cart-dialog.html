@@ -23,7 +23,7 @@
 
       <div class="quantity">
         <button class="remove-item-btn" (click)="cart.removeItem(item.name)">
-          -
+          <mat-icon>remove</mat-icon>
         </button>
 
         <span class="count"> {{ item.quantity }}</span>
@@ -32,7 +32,7 @@
           class="add-item-btn"
           (click)="cart.addItem({ name: item.name, unitPrice: item.unitPrice })"
         >
-          +
+          <mat-icon>add</mat-icon>
         </button>
       </div>
     </div>
