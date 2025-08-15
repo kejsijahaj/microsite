@@ -26,9 +26,18 @@
           <mat-icon class="icon">remove</mat-icon>
         </button>
 
-        <!-- i need to make this an input -->
         <div class="input-wrapper">
-          <input class="count" [defaultValue]="item.quantity">
+          <input
+            class="count"
+            min="1"
+            [value]="item.quantity"
+            [style.backgroundColor]="isEmpty(item.name) ? '#fe8181' : ''"
+            (focus)="onQtyFocus(item.name)"
+            (input)="onQtyInput(item.name, $event)"
+            (blur)="onQtyBlur(item, $event)"
+            step="1"
+            inputmode="numeric"
+          />
         </div>
 
         <button

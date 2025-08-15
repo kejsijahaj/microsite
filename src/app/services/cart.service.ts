@@ -1,4 +1,4 @@
-import { Injectable } from '@angular/core';
+import { Injectable, Input } from '@angular/core';
 import { CartItem } from '../cart/cart-item.model';
 
 @Injectable({ providedIn: 'root' })
@@ -12,6 +12,20 @@ export class CartService {
     } else {
       this.items.push({ ...product, quantity: 1 });
     }
+  }
+
+  setQuantityByName(name: string, qty: number) {
+    const line = this.items.find((i) => i.name === name);
+    if (!line) return;
+
+    if (!Number.isFinite(qty)) return;
+    const q = Math.floor(qty);
+    if (q < 1) return;
+    line.quantity = q;
+  }
+
+  removeLine(name: string) {
+    this.items = this.items.filter((i) => i.name !== name);
   }
 
   removeItem(productName: string) {

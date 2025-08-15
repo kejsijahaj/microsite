@@ -22,6 +22,9 @@ export class CartDialog implements OnInit, OnDestroy {
   ui = inject(CartUiService);
   success = inject(SuccessUiService);
 
+  private empty: Record<string, boolean> = {};
+  private deleteTimers: Record<string, any> = {};
+
   @ViewChild('closeBtn') closeBtn!: ElementRef<HTMLButtonElement>;
   private previouslyFocused?: HTMLElement;
 
@@ -49,5 +52,48 @@ export class CartDialog implements OnInit, OnDestroy {
     this.cart.clearCart();
     this.ui.closeDialog();
     this.success.openDialog('Thank you for your order!');
+  }
+
+  onQtyInput(name: string, ev: Event) {
+    const v = (ev.target as HTMLInputElement).value.trim();
+    this.empty[name] = v === '';
+  }
+
+  onQtyFocus(name: string) {
+    this.empty[name] = false;
+    if (this.deleteTimers[name]) {
+      clearTimeout(this.deleteTimers[name]);
+      delete this.deleteTimers[name];
+    }
+  }
+
+  onQtyBlur(item: { name: string }, ev: FocusEvent) {
+    const input = ev.target as HTMLInputElement;
+    const raw = input.value.trim();
+
+    if (raw === '') {
+      this.empty[item.name] = true;
+      this.deleteTimers[item.name] = setTimeout(() => {
+        this.cart.removeLine(item.name);
+        delete this.deleteTimers[item.name];
+        delete this.empty[item.name];
+      }, 300);
+      return;
+    }
+
+    const n = Number.isFinite(input.valueAsNumber)
+      ? input.valueAsNumber
+      : Number(raw);
+    if (Number.isFinite(n) && n >= 1) {
+      this.cart.setQuantityByName(item.name, Math.floor(n));
+      this.empty[item.name] = false;
+    } else {
+      input.value = String(this.cart.getQuantityByName(item.name));
+      this.empty[item.name] = false;
+    }
+  }
+
+  isEmpty(name: string) {
+    return !!this.empty[name];
   }
 }
